@@ -67,9 +67,11 @@ class SpawnedService(threading.Thread):
             poll_results = self.child.poll()
             if poll_results is not None:
                 if not alive:
+                    print('##################################################')
                     break
                 else:
                     self.dump_logs()
+                    print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
                     raise RuntimeError("Subprocess has died. Aborting. (args=%s)" % ' '.join(str(x) for x in self.args))
 
     def dump_logs(self):
