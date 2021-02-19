@@ -1,5 +1,8 @@
 dist: trusty
 language: python
+arch:
+  - amd64
+  - arm64
 branches:
   except:
     - gh-pages
@@ -9,7 +12,7 @@ addons:
   apt:
     packages:
     - build-essential
-    - libzmq-dev
+    - libzmq3-dev
 install: ./install-dependencies.sh
 script:
   nosetests --with-coverage --cover-package=beaver
